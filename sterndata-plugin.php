@@ -59,4 +59,4 @@ function sds_dump_post_func () {
   
   return $str;
 }
-add_shortcode('sds_dump_post','sds_dump_post_func');
+add_shortcode('sds-dump-post','sds_dump_post_func');
