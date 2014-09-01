@@ -54,7 +54,8 @@ add_shortcode('sds-sitemap','sds_sitemap_func');
 function sds_dump_post_func () {
   global $post;
   
-  $str = print_r($post, true);
+  $str = "<pre>print_r value is: ".print_r($post, true);
+  $str .= "</pre>";
   
   return $str;
 }
