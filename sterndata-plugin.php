@@ -51,3 +51,11 @@ function sds_sitemap_func() {
 
 add_shortcode('sds-sitemap','sds_sitemap_func');
 
+function sds_dump_post_func () {
+  global $post;
+  
+  $str = print_r($post, true);
+  
+  return $str;
+}
+add_shortcode('sds_dump_post','sds_dump_post_func');
