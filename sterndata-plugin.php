@@ -1,12 +1,18 @@
 <?php
 /**
- * Plugin Name: SternData theme support plugin 
+ * Plugin Name: SternData theme support plugin
  * Description: functions to support the theme.
  * Version: 1.0
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: TBD
  */
+
+function sds_plugin_init() {
+ add_shortcode('sds-sitemap','sds_sitemap_func');
+ add_shortcode('sds-dump-post','sds_dump_post_func');
+}
+add_action( 'init', 'sds_plugin_init' );
 
 function sds_sitemap_func() {
   $results="<div id=\"sds-sitemap\">\n";
@@ -49,14 +55,13 @@ function sds_sitemap_func() {
    return $results;
 }
 
-add_shortcode('sds-sitemap','sds_sitemap_func');
+
 
 function sds_dump_post_func () {
   global $post;
-  
+
   $str = "<pre>print_r value is: ".print_r($post, true);
   $str .= "</pre>";
-  
+
   return $str;
 }
-add_shortcode('sds-dump-post','sds_dump_post_func');
