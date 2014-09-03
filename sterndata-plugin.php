@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: SternData theme support plugin
- * Description: functions to support the theme.
+ * Plugin Name: SternData common stuff plugin
+ * Description: functions to support shortcodes.
  * Version: 1.0
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
@@ -10,7 +10,6 @@
 
 function sds_plugin_init() {
  add_shortcode('sds-sitemap','sds_sitemap_func');
- add_shortcode('sds-dump-post','sds_dump_post_func');
 }
 add_action( 'init', 'sds_plugin_init' );
 
@@ -33,14 +32,19 @@ function sds_sitemap_func() {
         $cat_id= $cat->term_id;
         $first_post=true;
         // create a custom wordpress query
-        query_posts( array( 'cat' => $cat_id, 'posts_per_page' => -1) );
+       $query_args = array (
+                'cat' => $cat_id,
+                'posts_per_page' => -1,
+                'cache_results' => true
+                );
+       $myq =  new WP_Query( $query_args );
         // start the wordpress loop!
-        if (have_posts()) {
+        if ($myq->have_posts()) {
             if ( $first_post ) {
               $results .= "<h3>".$cat->name."</h3>\n<ul>\n";
               $first_post=false;
               }
-            while ( have_posts() ) : the_post();
+            while ( have_posts() ) : $myq->the_post();
                $results .= "<li><a href='";
                $resuls .= get_permalink();
                $results .= "'>";
@@ -49,19 +53,8 @@ function sds_sitemap_func() {
             endwhile;
             $results .= "</ul>\n";
             }
-          wp_reset_query();
+          wp_reset_postdata();
           }
    $results .= "</div></div>";
    return $results;
-}
-
-
-
-function sds_dump_post_func () {
-  global $post;
-
-  $str = "<pre>print_r value is: ".print_r($post, true);
-  $str .= "</pre>";
-
-  return $str;
 }
