@@ -63,5 +63,4 @@ function sds_sitemap_func() {
 function sds_shortcode_year () {
    return date('Y');
 }
-add_shortcode('year',sds_shortcode_year);
 
