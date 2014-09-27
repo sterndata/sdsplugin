@@ -10,7 +10,7 @@
 
 function sds_plugin_init() {
  add_shortcode('sds-sitemap','sds_sitemap_func');
- add_shortcode('year',sds_shortcode_year);
+ add_shortcode('year','sds_shortcode_year');
 
 }
 add_action( 'init', 'sds_plugin_init' );
