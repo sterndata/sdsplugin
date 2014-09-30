@@ -48,7 +48,7 @@ function sds_sitemap_func() {
               }
             while ( $myq->have_posts() ) : $myq->the_post();
                $results .= "<li><a href='";
-               $resuls .= get_permalink();
+               $results .= get_permalink();
                $results .= "'>";
                $results .= get_the_title();
                 $results .= "</a></li>\n";
