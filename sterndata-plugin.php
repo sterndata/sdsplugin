@@ -110,5 +110,5 @@ function sds_anchor($atts) {
    $a = shortcode_atts( array(
         'name' => '',
     ), $atts );
-   return '<a name="' . sanitize_text_field($a['name']) . '"></a>';
+   return '<div class="sds-anchor" id="' . sanitize_text_field($a['name']) . '"></div>';
 }
