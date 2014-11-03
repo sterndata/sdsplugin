@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SternData common stuff plugin
  * Description: functions to support shortcodes.
- * Version: 20141028a 
+ * Version: 201411103a 
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: TBD
@@ -12,6 +12,7 @@ function sds_plugin_init() {
  add_shortcode('sds-sitemap','sds_sitemap_func');
  add_shortcode('year','sds_shortcode_year');
  add_shortcode('child-menu','sds_child_menu');
+ add_shortcode('anchor','sds_anchor');
 }
 add_action( 'init', 'sds_plugin_init' );
 
@@ -105,4 +106,9 @@ function sds_sitemap_func() {
 function sds_shortcode_year () {
    return date('Y');
 }
-
+function sds_anchor($atts) {
+   $a = shortcode_atts( array(
+        'name' => '',
+    ), $atts );
+   return '<a name="' . sanitize_text_field($a['name']) . '">';
+}
