@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: SternData common stuff plugin
- * Description: functions to support shortcodes.
- * Version: 201411103a 
+ * Description: functions to support shortcodes and popup
+ * Version: 20141121a 
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
- * License: TBD
+ * License: GPL 2
  */
 
 function sds_plugin_init() {
@@ -13,6 +13,7 @@ function sds_plugin_init() {
  add_shortcode('year','sds_shortcode_year');
  add_shortcode('child-menu','sds_child_menu');
  add_shortcode('anchor','sds_anchor');
+ wp_enqueue_script('popup', plugins_url('popup.js',__FILE__) , array(), '2.0' , true);
 }
 add_action( 'init', 'sds_plugin_init' );
 
