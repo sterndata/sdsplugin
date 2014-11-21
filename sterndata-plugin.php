@@ -1,11 +1,12 @@
 <?php
 /**
- * Plugin Name: SternData common stuff plugin
+ * Plugin Name: Standard Stuff (SternData) 
  * Description: functions to support shortcodes and popup
- * Version: 20141121a 
+ * Version: 20141121b 
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
- * License: GPL 2
+ * License: Gnu Public License V2
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
 function sds_plugin_init() {
