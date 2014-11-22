@@ -145,7 +145,7 @@ function sds_popup($atts) {
     ), $atts );
    $str = '<a class="sds_popup" href="javascript:popUp(\'';
    $str .= esc_js( esc_url( $a['url'] ) );
-   $str .= '\',' . (int)$a['width']  .')">' . sanitize_text_field( $a['label'] ) . '</a>';
+   $str .= '\',' . (int)$a['width']  .')">' . esc_html( $a['label'] ) . '</a>';
    return $str;
 }
 
