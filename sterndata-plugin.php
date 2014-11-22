@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Standard Stuff (SternData) 
  * Description: functions to support shortcodes and popup
- * Version: 20141121b 
+ * Version: 20141122a
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
@@ -31,10 +31,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 
 function sds_plugin_init() {
- add_shortcode('sds-sitemap','sds_sitemap_func');
- add_shortcode('year','sds_shortcode_year');
- add_shortcode('child-menu','sds_child_menu');
- add_shortcode('anchor','sds_anchor');
+ add_shortcode( 'sds-sitemap' ,    'sds_sitemap_func' );
+ add_shortcode( 'year' ,           'sds_shortcode_year' );
+ add_shortcode( 'child-menu' ,     'sds_child_menu' );
+ add_shortcode( 'anchor' ,         'sds_anchor' );
+ add_shortcode( 'popup' ,          'sds_popup' );
  wp_enqueue_script('popup', plugins_url('popup.js',__FILE__) , array(), '2.0' , true);
 }
 add_action( 'init', 'sds_plugin_init' );
@@ -135,3 +136,16 @@ function sds_anchor($atts) {
     ), $atts );
    return '<div class="sds-anchor" id="' . sanitize_text_field($a['name']) . '"></div>';
 }
+
+function sds_popup($atts) {
+   $a = shortcode_atts( array(
+        'label' => '',
+        'url' => '',
+        'width' => 1024,
+    ), $atts );
+   $str = '<a class="sds_popup" href="javascript:popUp(\'';
+   $str .= esc_url( $a['url'] );
+   $str .= '\',' . (int)$a['width']  .')">' . sanitize_text_field( $a['label'] ) . '</a>';
+   return $str;
+}
+

@@ -8,13 +8,24 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Provides commonly used shortcodes and the popup window script.
 
 == Description ==
-This plugin provides the shortcodes as shown below and adds a javascript popup window function, \"popUP\"
+This plugin provides the shortcodes as shown below and adds a javascript popup window function, "popUP"
 
- add_shortcode(\'sds-sitemap\',\'sds_sitemap_func\');
- add_shortcode(\'year\',\'sds_shortcode_year\');
- add_shortcode(\'child-menu\',\'sds_child_menu\');
- add_shortcode(\'anchor\',\'sds_anchor\');
- wp_enqueue_script(\'popup\', plugins_url(\'popup.js\',__FILE__) , array(), \'2.0\' , true)
+Shortcodes:
+
+     [sds-sitemap]
+         returns a list of pages and posts by category
+
+     [year] 
+         returns the current year (for use in copyright, etc.)
+
+     [child-menu title='title'] 
+         returns a list of child pages for the current page
+
+     [anchor name='anchorname']
+         inserts an anchor tag
+
+     [popup label='text' url='url' width='popup width']
+
 
 
 == Installation ==
