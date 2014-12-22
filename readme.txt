@@ -1,5 +1,5 @@
 === Standard Stuff (SternData) ===
-Contributors: sstern
+Contributors: sstern sterndata
 Requires at least: 3.8.4
 Tested up to: 4.1
 License: Gnu Public License V2
