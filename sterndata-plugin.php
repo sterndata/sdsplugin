@@ -154,6 +154,6 @@ function sds_font_size($atts,$content) {
    $a = shortcode_atts( array(
         'size' => '100%',
     ), $atts );
-   return '<span style="font-size: ' . $a['size'] . ';">' . do_shortcode($content) . '</span>';
+    return '<div style="font-size: ' . $a['size'] . ';">' . do_shortcode($content) . '</div>';
 }
 
