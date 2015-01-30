@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Standard Stuff (SternData) 
  * Description: functions to support shortcodes and popup
- * Version: 20141122a
+ * Version: 20150130a
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
@@ -36,6 +36,7 @@ function sds_plugin_init() {
  add_shortcode( 'child-menu' ,     'sds_child_menu' );
  add_shortcode( 'anchor' ,         'sds_anchor' );
  add_shortcode( 'popup' ,          'sds_popup' );
+ add_shortcode( 'font-size' ,      'sds_font_size' );
  wp_enqueue_script('popup', plugins_url('popup.js',__FILE__) , array(), '2.0' , true);
 }
 add_action( 'init', 'sds_plugin_init' );
@@ -147,5 +148,12 @@ function sds_popup($atts) {
    $str .= esc_js( esc_url( $a['url'] ) );
    $str .= '\',' . (int)$a['width']  .')">' . sanitize_text_field( $a['label'] ) . '</a>';
    return $str;
+}
+
+function sds_font_size($atts,$content) {
+   $a = shortcode_atts( array(
+        'size' => '100%',
+    ), $atts );
+   return '<span style="font-size: ' . $a['size'] . ';">' . do_shortcode($content) . '</span>';
 }
 

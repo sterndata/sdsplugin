@@ -11,7 +11,8 @@ Provides commonly used shortcodes and the popup window script.
 This plugin provides the shortcodes as shown below and adds a javascript popup window function, "popUP"
 
 Shortcodes:
-
+     [font-size size='newsize']
+          overrides font size.  Use percentage (e.g., 115%)
      [sds-sitemap]
          returns a list of pages and posts by category
 
