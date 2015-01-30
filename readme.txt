@@ -13,6 +13,7 @@ This plugin provides the shortcodes as shown below and adds a javascript popup w
 Shortcodes:
      [font-size size='newsize']
           overrides font size.  Use percentage (e.g., 115%)
+
      [sds-sitemap]
          returns a list of pages and posts by category
 
