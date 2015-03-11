@@ -86,14 +86,16 @@ function sds_child_menu($atts) {
 function sds_sitemap_func() {
   $results="<div id=\"sds-sitemap\">\n";
   $results .= "<div id=\"sds-sitemap-pages\">\n";
-  $results .= "<h2>Pages</h2>\n";
   $all_pages = get_pages();
-  $results .= "<ul>\n";
-  foreach ($all_pages as $page) {
-     $results .= "<li><a href=\"".get_page_link( $page->ID )."\">".$page->post_title."</a></li>\n";
-     }
-
-  $results .= "</ul></div>\n<div id=\"sds-sitemap-posts;\">\n";
+  if ($all_pages) {
+      $results .= '<h2>Pages</h2>';
+      $results .= "<ul>\n";
+      foreach ($all_pages as $page) {
+          $results .= "<li><a href=\"".get_page_link( $page->ID )."\">".$page->post_title."</a></li>\n";
+        }
+   $results .= "</ul>";
+   }
+  $results .= "</div>\n<div id=\"sds-sitemap-posts;\">\n";
   $results .=  "<h2>Posts</h2>\n";
     $cats = get_categories();
      // loop through the categries
