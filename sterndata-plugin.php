@@ -33,55 +33,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 function sds_plugin_init() {
  add_shortcode( 'sds-sitemap' ,    'sds_sitemap_func' );
  add_shortcode( 'year' ,           'sds_shortcode_year' );
- add_shortcode( 'child-menu' ,     'sds_child_menu' );
  add_shortcode( 'anchor' ,         'sds_anchor' );
  add_shortcode( 'popup' ,          'sds_popup' );
  add_shortcode( 'font-size' ,      'sds_font_size' );
  wp_enqueue_script('popup', plugins_url('popup.js',__FILE__) , array(), '2.0' , true);
 }
 add_action( 'init', 'sds_plugin_init' );
-
-function sds_child_menu($atts) {
-   global $post;
-   $str = ''; 
-   $a = shortcode_atts( array(
-        'title' => '',
-    ), $atts );
-
-   if ( !is_page() ) return;
-  
-   // is this a child page?
-   $parent = $post->post_parent;
- 
-   // if so, then use the parent to query for childen.  
-   // if not, use this page
-
-   if ($parent) {
-       $id = $parent; 
-     } else {
-       $id = $post->ID;
-     } 
- 
-   // does this page have children?
-   $my_wp_query = new WP_Query();
-   $all_wp_pages = $my_wp_query->query(array(
-          'post_type' => 'page',
-          'orderby' => 'title', 
-          'order' => 'ASC',
-          'posts_per_page' => -1,
-           )
-          );
-   $pages = get_page_children($id,$all_wp_pages);
-   if (sizeof($pages)==0) return;
-   $str .= '<h2>' . $a['title'] . '</h2>';
-   $str .= '<ul class="child-page-menu">';
-   foreach ($pages as $page) {
-       $str .=  '<li><a href="'. get_permalink($page->ID) . '">' . $page->post_title . '</a></li>'; 
-       }
-   $str .= "</ul>";
-   wp_reset_postdata();
-   return $str;
-}
 
 function sds_sitemap_func() {
   $results="<div id=\"sds-sitemap\">\n";
