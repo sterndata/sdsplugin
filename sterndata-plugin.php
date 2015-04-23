@@ -36,6 +36,7 @@ function sds_plugin_init() {
  add_shortcode( 'anchor' ,         'sds_anchor' );
  add_shortcode( 'popup' ,          'sds_popup' );
  add_shortcode( 'font-size' ,      'sds_font_size' );
+ add_shortcode( 'sds_column',      'sds_column' );
  wp_enqueue_script('popup', plugins_url('popup.js',__FILE__) , array(), '2.0' , true);
 }
 add_action( 'init', 'sds_plugin_init' );
@@ -116,3 +117,12 @@ function sds_font_size($atts,$content) {
     return '<div style="font-size: ' . $a['size'] . ';">' . do_shortcode($content) . '</div>';
 }
 
+function sds_column($atts,$content) {
+    $a = shortcode_atts( array(
+           'width' => '100%'
+           ), $atts );
+
+    return '<div class="sds_column" style="width:' . $a['width'] . ';">' .$content . '</div>';
+}
+
+     
