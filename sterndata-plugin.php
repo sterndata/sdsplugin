@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Standard Stuff (SternData) 
  * Description: functions to support shortcodes and popup
- * Version: 20150424a
+ * Version: 20150614a
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
@@ -11,7 +11,7 @@
 
 /************************************
 
-Copyright (C) 2014 Steven D. Stern dba Stern Data Solutions
+Copyright (C) 2014-2015 Steven D. Stern dba Stern Data Solutions
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -53,39 +53,42 @@ function sds_sitemap_func() {
         }
    $results .= "</ul>";
    }
-  $results .= "</div>\n<div id=\"sds-sitemap-posts;\">\n";
-  $results .=  "<h2>Posts</h2>\n";
-    $cats = get_categories();
-     // loop through the categries
-     foreach ($cats as $cat) {
-        // setup the cateogory ID
-        $cat_id= $cat->term_id;
-        $first_post=true;
-        // create a custom wordpress query
-       $query_args = array (
+  $count_posts = wp_count_posts();
+  if ($count_posts->publish > 0 ) {
+    $results .= "</div>\n<div id=\"sds-sitemap-posts;\">\n";
+    $results .=  "<h2>Posts</h2>\n";
+      $cats = get_categories();
+       // loop through the categries
+       foreach ($cats as $cat) {
+          // setup the cateogory ID
+          $cat_id= $cat->term_id;
+          $first_post=true;
+          // create a custom wordpress query
+         $query_args = array (
                 'cat' => $cat_id,
                 'posts_per_page' => -1,
                 'cache_results' => true
                 );
-       $myq =  new WP_Query( $query_args );
-        // start the wordpress loop!
-        if ($myq->have_posts()) {
-            if ( $first_post ) {
-              $results .= "<h3>".$cat->name."</h3>\n<ul>\n";
-              $first_post=false;
+         $myq =  new WP_Query( $query_args );
+          // start the wordpress loop!
+          if ($myq->have_posts()) {
+              if ( $first_post ) {
+                $results .= "<h3>".$cat->name."</h3>\n<ul>\n";
+                $first_post=false;
+                }
+              while ( $myq->have_posts() ) : $myq->the_post();
+                 $results .= "<li><a href='";
+                 $results .= get_permalink();
+                 $results .= "'>";
+                 $results .= get_the_title();
+                 $results .= "</a></li>\n";
+                 endwhile;
+              $results .= "</ul>\n";
               }
-            while ( $myq->have_posts() ) : $myq->the_post();
-               $results .= "<li><a href='";
-               $results .= get_permalink();
-               $results .= "'>";
-               $results .= get_the_title();
-                $results .= "</a></li>\n";
-            endwhile;
-            $results .= "</ul>\n";
+            wp_reset_postdata();
             }
-          wp_reset_postdata();
-          }
-   $results .= "</div></div>";
+         } // end if count posts
+     $results .= "</div></div>";
    return $results;
 }
 function sds_shortcode_year () {
