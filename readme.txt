@@ -11,7 +11,7 @@ Provides commonly used shortcodes and the popup window script.
 This plugin provides the shortcodes as shown below and adds a javascript popup window function, "popUP"
 
 Shortcodes:
-     [font-size size='newsize']
+     [font-size size='newsize'] text [/font-size]
           overrides font size.  Use percentage (e.g., 115%)
 
      [sds-sitemap]
@@ -27,6 +27,8 @@ Shortcodes:
          inserts an anchor tag
 
      [popup label='text' url='url' width='popup width']
+     
+     [sds_column width='width'] text [/sds_column]
 
 
 
