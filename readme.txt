@@ -30,7 +30,10 @@ Shortcodes:
      
      [sds_column width='width'] text [/sds_column]
 
-
+== Changelog == 
+ =20150624a=
+ * update readme :-)
+ * handle shortcodes withing sds_columns
 
 == Installation ==
 Install like any other plugin. Unzip into wp-content/plugins/
