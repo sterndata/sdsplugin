@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Standard Stuff (SternData) 
  * Description: functions to support shortcodes and popup
- * Version: 20150614a
+ * Version: 20150624a
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
@@ -125,7 +125,7 @@ function sds_column($atts,$content) {
            'width' => '100%'
            ), $atts );
 
-    return '<div class="sds_column" style="width:' . $a['width'] . ';">' .$content . '</div>';
+    return '<div class="sds_column" style="width:' . $a['width'] . ';">' .do_shortcode($content) . '</div>';
 }
 
      
