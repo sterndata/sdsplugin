@@ -38,7 +38,7 @@ function sds_plugin_init() {
  add_shortcode( 'font-size' ,      'sds_font_size' );
  add_shortcode( 'sds_column',      'sds_column' );
  wp_enqueue_script('popup', plugins_url('popup.js',__FILE__) , array(), '2.0' , true);
- add_shortocde( 'years-since',     'sds_years_since');
+ add_shortcode( 'years-since',     'sds_years_since');
 }
 add_action( 'init', 'sds_plugin_init' );
 
