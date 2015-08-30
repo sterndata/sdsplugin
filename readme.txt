@@ -1,7 +1,7 @@
 === Standard Stuff (SternData) ===
 Contributors: sstern sterndata
 Requires at least: 3.8.4
-Tested up to: 4.2.2
+Tested up to: 4.3
 License: Gnu Public License V2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,9 +20,6 @@ Shortcodes:
      [year] 
          returns the current year (for use in copyright, etc.)
 
-     [child-menu title='title'] 
-         returns a list of child pages for the current page
-
      [anchor name='anchorname']
          inserts an anchor tag
 
@@ -31,6 +28,8 @@ Shortcodes:
      [sds_column width='width'] text [/sds_column]
 
 == Changelog == 
+ =20150830=
+ * removed menion of "child_pages" which was removed from the code a while ago.
  =20150624a=
  * update readme :-)
  * handle shortcodes withing sds_columns
