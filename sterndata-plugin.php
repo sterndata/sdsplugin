@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Standard Stuff (SternData) 
  * Description: functions to support shortcodes and popup
- * Version: 20150624a
+ * Version: 20150830
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
