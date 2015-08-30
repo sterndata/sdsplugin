@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Standard Stuff (SternData) 
  * Description: functions to support shortcodes and popup
- * Version: 20150830
+ * Version: 20150830a
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
@@ -38,6 +38,7 @@ function sds_plugin_init() {
  add_shortcode( 'font-size' ,      'sds_font_size' );
  add_shortcode( 'sds_column',      'sds_column' );
  wp_enqueue_script('popup', plugins_url('popup.js',__FILE__) , array(), '2.0' , true);
+ add_shortocde( 'years-since',     'sds_years_since');
 }
 add_action( 'init', 'sds_plugin_init' );
 
@@ -128,4 +129,19 @@ function sds_column($atts,$content) {
     return '<div class="sds_column" style="width:' . $a['width'] . ';">' .do_shortcode($content) . '</div>';
 }
 
-     
+function sds_years_since( $atts,$content ) {
+
+// returns the difference between the start year 
+// and the current year
+
+   $a = shortcode_atts( array(
+        'start' => 0,
+    ), $atts );
+   
+   $ty = date('Y');
+   $since = $ty - (int)$a['start'];
+   
+   if ( $since < 0 ) return '<b>years-since error: start date must be greater than or equal to this year.</b>';
+   if ( $since == 0) return "less than one";
+   return ""$since";    
+}
