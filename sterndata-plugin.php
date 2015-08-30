@@ -141,7 +141,7 @@ function sds_years_since( $atts,$content ) {
    $ty = date('Y');
    $since = $ty - (int)$a['start'];
    
-   if ( $since < 0 ) return '<b>years-since error: start date must be greater than or equal to this year.</b>';
+   if ( $since < 0 ) return '<b>years-since error: start date must be less than or equal to this year.</b>';
    if ( $since == 0) return "less than one";
    return "$since";    
 }
