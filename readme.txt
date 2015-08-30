@@ -26,8 +26,13 @@ Shortcodes:
      [popup label='text' url='url' width='popup width']
      
      [sds_column width='width'] text [/sds_column]
+     
+     [years-since start="a year number"]
+          returns years since a year number. For example, In business for [years-since start="1960"] years.
 
 == Changelog == 
+ =20150830a=
+ # added "years-since"    
  =20150830=
  * removed menion of "child_pages" which was removed from the code a while ago.
  =20150624a=
