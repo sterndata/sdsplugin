@@ -7,6 +7,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Provides commonly used shortcodes and the popup window script.
 
+The plugin at https://github.com/afragen/github-updater allows this to be updated via github
+
 == Description ==
 This plugin provides the shortcodes as shown below and adds a javascript popup window function, "popUP"
 
