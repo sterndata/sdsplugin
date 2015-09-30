@@ -33,6 +33,8 @@ Shortcodes:
           returns years since a year number. For example, In business for [years-since start="1960"] years.
 
 == Changelog == 
+ =20150930=
+  change version number format to work better with WordPress and github updater
  =20150830a=
  # added "years-since"    
  =20150830=
