@@ -75,7 +75,7 @@ function sds_recent_post( $atts, $content ) {
 		echo "<p><a href='$href'>Read More</a></p>";
 	}
 	wp_reset_query();
-	$str = ob_get_content();
+	$str = ob_get_contents();
 	ob_end_clean();
 	return $str;
 }
