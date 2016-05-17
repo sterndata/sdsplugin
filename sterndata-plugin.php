@@ -65,7 +65,7 @@ function sds_recent_post( $atts, $content ) {
 	}
 	while ( $recent_posts->have_posts() ) {
 		$recent_posts->the_post();
-		the_title();
+		the_title( '<h2>', '</h2>' );
 		the_excerpt();
 		if ( '' != $a['cat'] ) {
 			$href = '/category/'.$a['cat'];
