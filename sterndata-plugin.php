@@ -49,13 +49,14 @@ function sds_recent_post( $atts, $content ) {
 	), $atts );
 
 	$args = array(
-		'numberposts' => 1,
+		'posts_per_page' => 1,
 		'offset' => 0,
 		'category' => $a['cat'],
 		'orderby' => 'post_date',
 		'order' => 'DESC',
 		'post_type' => 'post',
 		'post_status' => 'publish',
+		'ignore_sticky_posts' => true,
 	);
 	$recent_posts = new WP_Query( $args );
 	ob_start();
