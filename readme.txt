@@ -19,24 +19,29 @@ Shortcodes:
      [sds-sitemap]
          returns a list of pages and posts by category
 
-     [year] 
+     [year]
          returns the current year (for use in copyright, etc.)
 
      [anchor name='anchorname']
          inserts an anchor tag
 
      [popup label='text' url='url' width='popup width']
-     
+
      [sds_column width='width'] text [/sds_column]
-     
+
      [years-since start="a year number"]
           returns years since a year number. For example, In business for [years-since start="1960"] years.
 
-== Changelog == 
+		 [sds_recent_post cat='category_name']
+		 	    returns the most recent post title and except for that category
+
+== Changelog ==
+ =20160517=
+  added sds_recent_post
  =20150930=
   change version number format to work better with WordPress and github updater
  =20150830a=
- # added "years-since"    
+ # added "years-since"
  =20150830=
  * removed menion of "child_pages" which was removed from the code a while ago.
  =20150624a=
