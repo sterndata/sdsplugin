@@ -43,6 +43,13 @@ function sds_plugin_init() {
 	add_shortcode( 'years-since',		 'sds_years_since' );
 }
 add_action( 'init', 'sds_plugin_init' );
+
+/*
+* sds_recent_post
+*	get the most recent post in a category
+*	and provide  a link to the other posts in that category
+*/
+
 function sds_recent_post( $atts, $content ) {
 	$a = shortcode_atts( array(
 		'cat' => '',
@@ -68,11 +75,11 @@ function sds_recent_post( $atts, $content ) {
 		the_title( '<h2>', '</h2>' );
 		the_excerpt();
 		if ( '' != $a['cat'] ) {
-			$href = '/category/'.$a['cat'];
+			$href = '/category/' . $a['cat'];
 		} else {
 			$href = '/blog';
 		}
-		echo "<p><a href='$href'>Read More</a></p>";
+		echo "<p><a href='$href'>Read More" . ucwords( $a['cat'] ) . "</a></p>";
 	}
 	wp_reset_query();
 	return ob_get_clean();
