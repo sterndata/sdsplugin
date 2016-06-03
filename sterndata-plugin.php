@@ -3,7 +3,7 @@
  * Plugin Name: Standard Stuff (SternData)
  * Plugin URI:	https://github.com/sterndata/sdsplugin
  * Description: functions to support shortcodes and popup
- * Version: 2016.05.17
+ * Version: 2016.06.03
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
@@ -30,28 +30,17 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA	02110-1301, USA.
 
 *******************************/
 
-
 function sds_plugin_scripts {
 	wp_enqueue_script( 'popup', plugins_url( 'popup.js',__FILE__ ) , array(), '2.0' , true );
 	}
 add_action( 'wp_enqueue_scripts', 'sds_plugin_scripts' );
-
-/* all the shortcodes */
-add_shortcode( 'sds-sitemap' ,	'sds_sitemap_func' );
-add_shortcode( 'year' ,	  'sds_shortcode_year' );
-add_shortcode( 'anchor' ,  'sds_anchor' );
-add_shortcode( 'popup' , 'sds_popup' );
-add_shortcode( 'font-size' ,'sds_font_size' );
-add_shortcode( 'sds_column', 'sds_column' );
-add_shortcode( 'sds_recent_post', 'sds_recent_post'	);
-add_shortcode( 'years-since', 'sds_years_since' );
 
 /*
 * sds_recent_post
 *	get the most recent post in a category
 *	and provide  a link to the other posts in that category
 */
-
+add_shortcode( 'sds_recent_post', 'sds_recent_post' );
 function sds_recent_post( $atts, $content ) {
 	$a = shortcode_atts( array(
 		'cat' => '',
@@ -87,6 +76,7 @@ function sds_recent_post( $atts, $content ) {
 	return ob_get_clean();
 }
 
+add_shortcode( 'sds-sitemap', 'sds_sitemap_func' );
 function sds_sitemap_func() {
 	$results = "<div id=\"sds-sitemap\">\n";
 	$results .= "<div id=\"sds-sitemap-pages\">\n";
@@ -137,9 +127,13 @@ function sds_sitemap_func() {
 	 $results .= '</div></div>';
 	return $results;
 }
+
+add_shortcode( 'year', 'sds_shortcode_year' );
 function sds_shortcode_year() {
 	return date( 'Y' );
 }
+
+add_shortcode( 'anchor' ,  'sds_anchor' );
 function sds_anchor( $atts ) {
 	$a = shortcode_atts( array(
 		'name' => '',
@@ -147,6 +141,7 @@ function sds_anchor( $atts ) {
 	return '<div class="sds-anchor" id="' . sanitize_text_field( $a['name'] ) . '"></div>';
 }
 
+add_shortcode( 'popup' , 'sds_popup' );
 function sds_popup( $atts ) {
 	$a = shortcode_atts( array(
 		'label' => '',
@@ -159,6 +154,7 @@ function sds_popup( $atts ) {
 	return $str;
 }
 
+add_shortcode( 'font-size' ,'sds_font_size' );
 function sds_font_size( $atts, $content ) {
 	$a = shortcode_atts( array(
 		'size' => '100%',
@@ -166,6 +162,7 @@ function sds_font_size( $atts, $content ) {
 	return '<div style="font-size: ' . $a['size'] . ';">' . do_shortcode( $content ) . '</div>';
 }
 
+add_shortcode( 'sds_column', 'sds_column' );
 function sds_column( $atts, $content ) {
 	$a = shortcode_atts( array(
 			 'width' => '100%',
@@ -174,6 +171,7 @@ function sds_column( $atts, $content ) {
 	return '<div class="sds_column" style="width:' . $a['width'] . ';">' .do_shortcode( $content ) . '</div>';
 }
 
+add_shortcode( 'years-since', 'sds_years_since' );
 function sds_years_since( $atts, $content ) {
 
 	// returns the difference between the start year
