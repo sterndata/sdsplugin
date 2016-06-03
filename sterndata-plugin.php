@@ -31,18 +31,20 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA	02110-1301, USA.
 *******************************/
 
 
-function sds_plugin_init() {
-	add_shortcode( 'sds-sitemap' ,		'sds_sitemap_func' );
-	add_shortcode( 'year' ,					  'sds_shortcode_year' );
-	add_shortcode( 'anchor' ,				  'sds_anchor' );
-	add_shortcode( 'popup' ,					'sds_popup' );
-	add_shortcode( 'font-size' ,			'sds_font_size' );
-	add_shortcode( 'sds_column',			'sds_column' );
-	add_shortcode( 'sds_recent_post', 'sds_recent_post'	);
+function sds_plugin_scripts {
 	wp_enqueue_script( 'popup', plugins_url( 'popup.js',__FILE__ ) , array(), '2.0' , true );
-	add_shortcode( 'years-since',		 'sds_years_since' );
-}
-add_action( 'init', 'sds_plugin_init' );
+	}
+add_action( 'wp_enqueue_scripts', 'sds_plugin_scripts' );
+
+/* all the shortcodes */
+add_shortcode( 'sds-sitemap' ,	'sds_sitemap_func' );
+add_shortcode( 'year' ,	  'sds_shortcode_year' );
+add_shortcode( 'anchor' ,  'sds_anchor' );
+add_shortcode( 'popup' , 'sds_popup' );
+add_shortcode( 'font-size' ,'sds_font_size' );
+add_shortcode( 'sds_column', 'sds_column' );
+add_shortcode( 'sds_recent_post', 'sds_recent_post'	);
+add_shortcode( 'years-since', 'sds_years_since' );
 
 /*
 * sds_recent_post
