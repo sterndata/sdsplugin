@@ -27,8 +27,9 @@ Shortcodes:
 
      [popup label='text' url='url' width='popup width']
 
-     [sds_column width='width'] text [/sds_column]
-
+     [sds_column ] text [/sds_column]
+		 	accepts two parameters, "width" as a number (e.g., width="50%") or a class name (e.g class="half")
+			
      [years-since start="a year number"]
           returns years since a year number. For example, In business for [years-since start="1960"] years.
 

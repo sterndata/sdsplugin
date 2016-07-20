@@ -32,7 +32,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA	02110-1301, USA.
 
 function sds_plugin_scripts() {
 	wp_enqueue_script( 'popup', plugins_url( 'popup.js',__FILE__ ) , array(), '2.0' , true );
-	}
+}
 add_action( 'wp_enqueue_scripts', 'sds_plugin_scripts' );
 
 /*
@@ -70,7 +70,7 @@ function sds_recent_post( $atts, $content ) {
 		} else {
 			$href = '/blog';
 		}
-		echo "<p><a href='$href'>Read More" . ucwords( $a['cat'] ) . "</a></p>";
+		echo "<p><a href='$href'>Read More" . ucwords( $a['cat'] ) . '</a></p>';
 	}
 	wp_reset_query();
 	return ob_get_clean();
@@ -165,10 +165,21 @@ function sds_font_size( $atts, $content ) {
 add_shortcode( 'sds_column', 'sds_column' );
 function sds_column( $atts, $content ) {
 	$a = shortcode_atts( array(
-			 'width' => '100%',
+			 'width' => '',
+			 'class' => '',
 	), $atts );
 
-	return '<div class="sds_column" style="width:' . $a['width'] . ';">' .do_shortcode( $content ) . '</div>';
+	$str = 'class="sds_column ';
+	if ( '' != $a['class'] ) {
+		$str .= $a['class'];
+	}
+	$str .= '"';
+
+	if ( '' != $a['width'] ) {
+		$str .= ' style="width:' . $a['width'] . ';"';
+	}
+
+	return "<div $str >" . do_shortcode( $content ) . '</div>';
 }
 
 add_shortcode( 'years-since', 'sds_years_since' );
