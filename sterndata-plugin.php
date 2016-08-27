@@ -199,3 +199,9 @@ function sds_years_since( $atts, $content ) {
 	if ( 0 == $since ) { return 'less than one'; }
 	return "$since";
 }
+function sds_phpinfo() {
+   ob_start();
+   phpinfo();
+   return ob_get_clean();
+}
+add_shortcode( 'sds_phpinfo', 'sds_phpinfo' );
