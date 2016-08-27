@@ -40,6 +40,8 @@ Shortcodes:
 		 	    returns the most recent post title and except for that category
 
 == Changelog ==
+ =20160827=
+  added sds_phpinfo
  =20160517=
   added sds_recent_post
  =20150930=
