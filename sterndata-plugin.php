@@ -3,7 +3,7 @@
  * Plugin Name: Standard Stuff (SternData)
  * Plugin URI:	https://github.com/sterndata/sdsplugin
  * Description: functions to support shortcodes and popup
- * Version: 2016.08.27
+ * Version: 2016.09.13
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
@@ -85,7 +85,7 @@ function sds_sitemap_func() {
 		$results .= '<h2>Pages</h2>';
 		$results .= "<ul>\n";
 		foreach ( $all_pages as $page ) {
-			$results .= '<li><a href="'.get_page_link( $page->ID ).'">'.$page->post_title."</a></li>\n";
+			$results .= '<li><a href="' . get_page_link( $page->ID ) . '">' . $page->post_title . "</a></li>\n";
 		}
 		$results .= '</ul>';
 	}
@@ -109,7 +109,7 @@ function sds_sitemap_func() {
 			// start the wordpress loop!
 			if ( $myq->have_posts() ) {
 				if ( $first_post ) {
-					$results .= '<h3>'.$cat->name."</h3>\n<ul>\n";
+					$results .= '<h3>' . $cat->name . "</h3>\n<ul>\n";
 					$first_post = false;
 				}
 				while ( $myq->have_posts() ) : $myq->the_post();
@@ -150,7 +150,7 @@ function sds_popup( $atts ) {
 	), $atts );
 	$str = '<a class="sds_popup" href="javascript:popUp(\'';
 	$str .= esc_js( esc_url( $a['url'] ) );
-	$str .= '\',' . (int) $a['width']	.')">' . sanitize_text_field( $a['label'] ) . '</a>';
+	$str .= '\',' . (int) $a['width'] . ')">' . sanitize_text_field( $a['label'] ) . '</a>';
 	return $str;
 }
 
@@ -195,13 +195,22 @@ function sds_years_since( $atts, $content ) {
 	$ty = date( 'Y' );
 	$since = $ty - (int) $a['start'];
 
-	if ( $since < 0 ) { return '<b>years-since error: start date must be less than or equal to this year.</b>'; }
-	if ( 0 == $since ) { return 'less than one'; }
-	return "$since";
+	if ( $since < 0 ) {
+		return '<b>years-since error: start date must be less than or equal to this year.</b>';
+	}
+	if ( 0 == $since ) {
+		return 'less than one';
+	}
+	if ( class_exists( 'NumberFormatter' ) ) {
+		$a = new NumberFormatter( 'en',NumberFormatter::SPELLOUT );
+		return $a-> format( $since );
+	} else {
+		return "$since";
+	}
 }
 function sds_phpinfo() {
-   ob_start();
-   phpinfo();
-   return ob_get_clean();
+	ob_start();
+	phpinfo();
+	return ob_get_clean();
 }
 add_shortcode( 'sds_phpinfo', 'sds_phpinfo' );

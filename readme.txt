@@ -40,6 +40,8 @@ Shortcodes:
 		 	    returns the most recent post title and except for that category
 
 == Changelog ==
+ =20160913=
+  years-since returns numbers as strings in the NumberFormatter class is available
  =20160827=
   added sds_phpinfo
  =20160517=
