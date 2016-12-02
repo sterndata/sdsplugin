@@ -12,7 +12,7 @@
 
 /************************************
 
-Copyright (C) 2014-2015 Steven D. Stern dba Stern Data Solutions
+Copyright (C) 2014-2016 Steven D. Stern dba Stern Data Solutions
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License

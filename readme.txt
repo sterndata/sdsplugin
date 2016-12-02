@@ -1,7 +1,7 @@
 === Standard Stuff (SternData) ===
 Contributors: sstern sterndata
 Requires at least: 3.8.4
-Tested up to: 4.6
+Tested up to: 4.7
 License: Gnu Public License V2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,7 @@ This plugin provides the shortcodes as shown below and adds a javascript popup w
 Shortcodes:
      [sds_phpinfo]
      	  outputs phpinfo()
-     	  
+
      [font-size size='newsize'] text [/font-size]
           overrides font size.  Use percentage (e.g., 115%)
 
@@ -32,7 +32,7 @@ Shortcodes:
 
      [sds_column ] text [/sds_column]
 		 	accepts two parameters, "width" as a number (e.g., width="50%") or a class name (e.g class="half")
-			
+
      [years-since start="a year number"]
           returns years since a year number. For example, In business for [years-since start="1960"] years.
 
