@@ -3,7 +3,7 @@
  * Plugin Name: Standard Stuff (SternData)
  * Plugin URI:	https://github.com/sterndata/sdsplugin
  * Description: functions to support shortcodes and popup
- * Version: 2016.09.13
+ * Version: 2016.12.01
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
