@@ -1,7 +1,7 @@
 === Standard Stuff (SternData) ===
 Contributors: sstern sterndata
 Requires at least: 3.8.4
-Tested up to: 4.7
+Tested up to: 4.8
 License: Gnu Public License V2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
