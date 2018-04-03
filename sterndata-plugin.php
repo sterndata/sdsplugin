@@ -215,3 +215,8 @@ function sds_phpinfo() {
 	return ob_get_clean();
 }
 add_shortcode( 'sds_phpinfo', 'sds_phpinfo' );
+
+function sds_show_mod_date( $atts, $content ) {
+   return get_the_modified_date();
+}
+add_shortcode( 'last-update', 'sds_show_mod_date' );
