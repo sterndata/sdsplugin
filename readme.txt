@@ -13,6 +13,9 @@ The plugin at https://github.com/afragen/github-updater allows this to be update
 This plugin provides the shortcodes as shown below and adds a javascript popup window function, "popUP"
 
 Shortcodes:
+     [last-update]
+          outputs the date of the last page/post modification
+	  
      [sds_phpinfo]
      	  outputs phpinfo()
 
