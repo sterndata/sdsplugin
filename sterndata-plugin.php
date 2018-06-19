@@ -134,14 +134,12 @@ function sds_shortcode_year() {
 	return date( 'Y' );
 }
 
-if ( !is_function( 'sds_anchor' ) ) {
-	add_shortcode( 'anchor' ,  'sds_anchor' );
-	function sds_anchor( $atts ) {
-		$a = shortcode_atts( array(
-			'name' => '',
-		), $atts );
-		return '<div class="sds-anchor" id="' . sanitize_text_field( $a['name'] ) . '"></div>';
-	}
+add_shortcode( 'anchor' ,  'sds_anchor' );
+function sds_anchor( $atts ) {
+	$a = shortcode_atts( array(
+		'name' => '',
+	), $atts );
+	return '<div class="sds-anchor" id="' . sanitize_text_field( $a['name'] ) . '"></div>';
 }
 
 add_shortcode( 'popup' , 'sds_popup' );
