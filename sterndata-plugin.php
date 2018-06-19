@@ -134,7 +134,7 @@ function sds_shortcode_year() {
 	return date( 'Y' );
 }
 
-if ( !is_function( 'sds_anchor' ) {
+if ( !is_function( 'sds_anchor' ) ) {
 	add_shortcode( 'anchor' ,  'sds_anchor' );
 	function sds_anchor( $atts ) {
 		$a = shortcode_atts( array(
