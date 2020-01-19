@@ -1,7 +1,7 @@
 === Standard Stuff (SternData) ===
 Contributors: sstern sterndata
 Requires at least: 3.8.4
-Tested up to: 4.9
+Tested up to: 5.3.2
 License: Gnu Public License V2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,9 @@ The plugin at https://github.com/afragen/github-updater allows this to be update
 This plugin provides the shortcodes as shown below and adds a javascript popup window function, "popUP"
 
 Shortcodes:
+     [wp-version]
+          returns the global string $wp-version
+
      [last-update]
           outputs the date of the last page/post modification
 	  
@@ -43,6 +46,8 @@ Shortcodes:
 		 	    returns the most recent post title and except for that category
 
 == Changelog ==
+ =20200119=
+  add wp-version shortcode
  =20160913=
   years-since returns numbers as strings in the NumberFormatter class is available
  =20160827=
