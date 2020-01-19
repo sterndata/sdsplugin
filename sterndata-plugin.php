@@ -220,3 +220,9 @@ function sds_show_mod_date( $atts, $content ) {
    return get_the_modified_date();
 }
 add_shortcode( 'last-update', 'sds_show_mod_date' );
+
+function sds_wp_version() {
+   global $wp_version;
+   return $wp_version;
+}
+add_shortcode('wp-version', 'sds_wp_version');
